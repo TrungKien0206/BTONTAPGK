@@ -1,10 +1,10 @@
-
 package btgk;
 
-
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Student extends Person {
+
     private float gpa;
     private String major;
 
@@ -16,12 +16,15 @@ public class Student extends Person {
 
     @Override
     public void displayInfo() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String formattedDate = dateFormat.format(dateOfBirth);
         System.out.println("ID: " + id);
         System.out.println("Full Name: " + fullName);
-        System.out.println("Date of Birth: " + dateOfBirth);
+        System.out.println("Date of Birth: " + formattedDate);
         System.out.println("GPA: " + gpa);
         System.out.println("Major: " + major);
         System.out.println("----------------------------------");
+
     }
 
     public void addStudent(String id, String fullName, Date dateOfBirth, float gpa, String major) {
@@ -30,6 +33,7 @@ public class Student extends Person {
         this.dateOfBirth = dateOfBirth;
         this.gpa = gpa;
         this.major = major;
+
     }
 
     public float getGpa() {
