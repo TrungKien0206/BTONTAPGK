@@ -1,10 +1,9 @@
-
 package btgk;
-
 
 import java.util.ArrayList;
 
 public class StudentList {
+
     private ArrayList<Student> studentList = new ArrayList<>();
 
     public void addStudent(Student student) {
@@ -17,7 +16,7 @@ public class StudentList {
                 return student;
             }
         }
-        return null; 
+        return null;
     }
 
     public void deleteStudentById(String id) {
@@ -33,7 +32,7 @@ public class StudentList {
 
     public Student findTopStudent() {
         if (studentList.isEmpty()) {
-            return null; 
+            return null;
         }
 
         Student topStudent = studentList.get(0);
@@ -44,5 +43,22 @@ public class StudentList {
         }
         return topStudent;
     }
-}
 
+    public void displayStudentsWithScholarship() {
+        System.out.println("Students with Scholarship:");
+        for (Student student : studentList) {
+            if (student.getGpa() >= 9) {
+                student.displayInfo();
+            }
+        }
+        System.out.println("-----------------------------");
+    }
+
+    public float calculateTotalTuitionFee() {
+        float totalTuitionFee = 0;
+        for (Student student : studentList) {
+            totalTuitionFee += student.calculateTuitionFee();
+        }
+        return totalTuitionFee;
+    }
+}

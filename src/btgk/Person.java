@@ -1,10 +1,9 @@
-
 package btgk;
 
 import java.util.Date;
 
+abstract class Person implements IPerson {
 
-abstract class Person implements IPerson{
     protected String id;
     protected String fullName;
     protected Date dateOfBirth;
@@ -15,7 +14,6 @@ abstract class Person implements IPerson{
         this.dateOfBirth = dateOfBirth;
     }
 
-    // Getters and Setters
     public String getId() {
         return id;
     }
@@ -40,7 +38,6 @@ abstract class Person implements IPerson{
         this.dateOfBirth = dateOfBirth;
     }
 
-    // Abstract method
     @Override
     public abstract void displayInfo();
 }

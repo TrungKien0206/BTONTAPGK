@@ -1,4 +1,3 @@
-
 package btgk;
 
 import java.util.Date;
@@ -7,6 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class Processor {
+
     public static void main(String[] args) throws ParseException {
         Scanner scanner = new Scanner(System.in);
         StudentList studentList = new StudentList();
@@ -19,14 +19,15 @@ public class Processor {
             System.out.println("3. Delete a student by id");
             System.out.println("4. Display all students");
             System.out.println("5. Find the student with the highest GPA");
-            System.out.println("6. Exit");
+            System.out.println("6. Display students with scholarship");
+            System.out.println("7. Display total tuition fees of all students");
+            System.out.println("8. Exit");
             System.out.println("-----------------------------");
             int choice = scanner.nextInt();
-            scanner.nextLine(); 
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
-                    
                     System.out.print("Enter ID: ");
                     String id = scanner.nextLine();
                     System.out.print("Enter Full Name: ");
@@ -37,7 +38,7 @@ public class Processor {
                     Date dateOfBirth = formatter.parse(dob);
                     System.out.print("Enter GPA: ");
                     float gpa = scanner.nextFloat();
-                    scanner.nextLine(); 
+                    scanner.nextLine();
                     System.out.print("Enter Major: ");
                     String major = scanner.nextLine();
                     studentList.addStudent(new Student(id, fullName, dateOfBirth, gpa, major));
@@ -51,7 +52,7 @@ public class Processor {
                     if (studentToUpdate != null) {
                         System.out.print("Enter new GPA: ");
                         float newGpa = scanner.nextFloat();
-                        scanner.nextLine(); 
+                        scanner.nextLine();
                         studentToUpdate.setGpa(newGpa);
                         System.out.println("Student updated successfully.");
                         System.out.println("-----------------------------");
@@ -85,6 +86,16 @@ public class Processor {
                     break;
 
                 case 6:
+                    studentList.displayStudentsWithScholarship();
+                    break;
+
+                case 7:
+                    float totalTuitionFee = studentList.calculateTotalTuitionFee();
+                    System.out.println("Total tuition fees of all students: " + totalTuitionFee + " VND");
+                    System.out.println("-----------------------------");
+                    break;
+
+                case 8:
                     exit = true;
                     break;
 
