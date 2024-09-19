@@ -1,6 +1,7 @@
 package btgk;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class StudentList {
 
@@ -60,5 +61,22 @@ public class StudentList {
             totalTuitionFee += student.calculateTuitionFee();
         }
         return totalTuitionFee;
+    }
+
+    void updateStudentById(String updateId, String newId, String newFullName, String format, float newGpa, String newMajor) {
+        String id = null;
+         Student student = findStudentById(id);
+    if (student != null) {
+        student.setId(newId);
+             Date dateOfBirth = null;
+        student.setDateOfBirth(dateOfBirth);
+             float gpa = 0;
+        student.setGpa(gpa);
+             String major = null;
+        student.setMajor(major);
+        System.out.println("Student updated successfully.");
+    } else {
+        System.out.println("Student with ID " + id + " not found.");
+    }
     }
 }

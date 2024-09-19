@@ -40,4 +40,5 @@ abstract class Person implements IPerson {
 
     @Override
     public abstract void displayInfo();
+    
 }

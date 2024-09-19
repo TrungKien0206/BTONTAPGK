@@ -46,18 +46,32 @@ public class Processor {
                     break;
 
                 case 2:
-                    System.out.print("Enter ID of the student to update: ");
+                   System.out.print("Enter ID of the student to update: ");
                     String updateId = scanner.nextLine();
+
                     Student studentToUpdate = studentList.findStudentById(updateId);
                     if (studentToUpdate != null) {
+                        System.out.print("Enter new Full Name: ");
+                        String newFullName = scanner.nextLine();
+                        System.out.print("Enter new Date of Birth (dd/MM/yyyy): ");
+                        String newDob = scanner.nextLine();
+                        SimpleDateFormat newFormatter = new SimpleDateFormat("dd/MM/yyyy");
+                        Date newDateOfBirth = newFormatter.parse(newDob);
                         System.out.print("Enter new GPA: ");
                         float newGpa = scanner.nextFloat();
                         scanner.nextLine();
+                        System.out.print("Enter new Major: ");
+                        String newMajor = scanner.nextLine();
+
+                        studentToUpdate.setName(newFullName);
+                        studentToUpdate.setDateOfBirth(newDateOfBirth);
                         studentToUpdate.setGpa(newGpa);
+                        studentToUpdate.setMajor(newMajor);
+
                         System.out.println("Student updated successfully.");
                         System.out.println("-----------------------------");
                     } else {
-                        System.out.println("Student not found.");
+                        System.out.println("Student with ID " + updateId + " not found.");
                         System.out.println("-----------------------------");
                     }
                     break;
